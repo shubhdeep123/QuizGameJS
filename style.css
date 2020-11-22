@@ -1,0 +1,96 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+
+body {
+    /* To access the colors --hue variable will be changed */
+  --hue: var(--hue-neutral);
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: hsl(var(--hue), 100%, 20%);
+}
+
+/* To access the correct color */
+body.correct {
+    --hue: var(--hue-correct);
+}
+
+/* To access the wrong color */
+body.wrong {
+    --hue: var(--hue-wrong);
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.btn-grid {
+    display: grid;
+    /* repeat 2 columns with auto width */
+    grid-template-columns: repeat(2,auto);
+    /* spaces between buttons */
+    gap: 10px;
+    /* spaces b/w questions and answers */
+    margin: 20px 0;
+}
+
+.btn {
+    --hue:var(--hue-neutral);
+    border: 1px solid hsl(var(--hue), 100%, 30%);
+    background-color: hsl(var(--hue), 100%, 50%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+}
+
+.btn:hover {
+    border-color: black;
+}
+/* To change color of btn when it is correct */
+.btn.correct {
+    --hue:var(--hue-correct);
+    color: black;
+}
+
+/* To change color of btn when it is wrong */
+.btn.wrong {
+    --hue:var(--hue-wrong);
+}
+/* Styling of start and next button */
+.start-btn, .next-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px, 20px;
+}
+/* Centering the start and next button */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* hiding all content by default */
+.hide {
+    display: none;
+}
